@@ -1,0 +1,8 @@
+<blockquote class="blockquote"> 
+    {% for t in testimonials %}
+        <p class="mb-0">{{ t.text }}</p>
+        <footer class="blockquote-footer">{{ t.name }}</footer>     
+    {% endfor %}             
+</blockquote>
+
+

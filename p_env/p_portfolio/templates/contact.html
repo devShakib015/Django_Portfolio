@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Message DJ</h1>
+    {% if new_message %}
+        <p>Your message is sent...</p>
+    {% else %}
+        <form action="." method="POST">
+        {% csrf_token %}
+        <div>
+            {{ form.as_p }}
+        </div>
+       
+        <input id="button" type="submit" value="Send message">
+        </form>
+    {% endif %}
+{% endblock %}

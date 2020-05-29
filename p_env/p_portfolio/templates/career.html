@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for career in careers %}
+        <h1>Title: {{ career.title }}</h1>
+        <p>Description: {{ career.description }}</p>
+        <img src="{{ career.image.url }}" alt="{{ career.title }} - image" width='256px' height='auto'>
+    {% endfor %}
+{% endblock %}

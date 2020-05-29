@@ -1,0 +1,11 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for business in businesses %}
+        <h1>Name: {{ business.name }}</h1>
+        <p>S D: {{ business.short_description }}</p>
+        <p>L D: {{ business.long_description }}</p>
+        <img src="{{ business.image.url }}" alt="{{ business.name }} - Pic" width='256px' height='auto'>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for recent_work in r_w %}
+        <h1>Title: {{ recent_work.title }}</h1>
+        <p>Description: {{ recent_work.description }}</p>
+        <img src="{{ recent_work.image.url }}" alt="{{ recent_work.title }} - image" width='256px' height='auto'>
+    {% endfor %}
+{% endblock %}
