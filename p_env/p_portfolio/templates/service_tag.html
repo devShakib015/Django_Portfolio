@@ -1,0 +1,13 @@
+<div class="display-5 justify-content-center d-flex">
+    <h1 class="border-bottom border-light py-2">Services</h1>
+</div>
+<div class=" row box">
+    {% for service in services %}
+        <div class="col-md-4 text-center">
+            <img src="{{ service.image.url }}" alt="{{ service.title }} - image" class="img-fluid img-box">
+            <h3>{{ service.title }}</h3>
+        </div>
+    
+    {% endfor %}
+    <p class="mx-auto mt-5"><a class="text-light" href="{% url 'service' %}">More services...</a></p>
+</div>

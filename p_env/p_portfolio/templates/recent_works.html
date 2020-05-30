@@ -1,10 +1,24 @@
 
 {% extends 'base.html' %}
-
+{% block title%}Works{% endblock %}
 {% block content %}
-    {% for recent_work in r_w %}
-        <h1>Title: {{ recent_work.title }}</h1>
-        <p>Description: {{ recent_work.description }}</p>
-        <img src="{{ recent_work.image.url }}" alt="{{ recent_work.title }} - image" width='256px' height='auto'>
-    {% endfor %}
+        <h1 class="display-3 text-center">Works</h1>
+        <hr>
+    
+        {% for recent_work in r_w %}
+            <div class="box">
+                <img src="{{ recent_work.image.url }}" alt="{{ recent_work.title }} - image" class="img-fluid img-box">
+                <div>
+                    <br>
+                </div>
+                <h2>{{ recent_work.title }}</h2>
+                <br>
+                <p>{{ recent_work.description }}</p>
+                <div>
+                    <br>
+                </div>
+            </div>
+            
+        {% endfor %}
+
 {% endblock %}

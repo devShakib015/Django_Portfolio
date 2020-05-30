@@ -1,9 +1,22 @@
 
 {% extends 'base.html' %}
-
+{% block title%}Videos{% endblock %}
 {% block content %}
+    <h1 class="display-3 text-center">Videos</h1>
+    <hr>
     {% for video in videos %}
-        <h1>Title: {{ video.title }}</h1>
-        <iframe width="512" height="256" src="{{ video.video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+        <div class="box">
+            <h3>{{ video.title }}</h3>
+            <div>
+                <br>
+            </div>
+            <div class="embed-responsive embed-responsive-21by9 img-box">
+                <iframe width="512" height="256" src="{{ video.video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+            </div>
+            <div>
+                <br>
+            </div>
+        </div>
+        
     {% endfor %}
 {% endblock %}

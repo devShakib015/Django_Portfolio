@@ -1,0 +1,16 @@
+<div class="display-5 justify-content-center d-flex">
+    <h1 class="border-bottom border-light py-2">Videos</h1>
+</div>
+
+<div class=" row box">
+    {% for video in videos %}
+        <div class="col-md-4 text-center">
+            
+            <div class="embed-responsive embed-responsive-16by9 img-box">
+                <iframe width="512" height="256" src="{{ video.video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+            </div>
+            <h3>{{ video.title }}</h3>
+        </div>
+    {% endfor %}
+    <p class="mx-auto mt-5"><a class="text-light" href="{% url 'videos' %}">More videos...</a></p>
+</div>

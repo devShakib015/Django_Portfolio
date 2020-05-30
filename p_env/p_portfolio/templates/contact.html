@@ -2,14 +2,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 style="text-align: center;">Message DJ</h1>
-    {% if new_message %}
-        <p style="text-align: center;">Your message is sent...</p>
-    {% else %}
-        <form action="." method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input class="btn btn-primary" type="submit" value="Send message">
-        </form>
-    {% endif %}
+    <h1 class="display-3 text-center">Message</h1>
+    <hr>
+    <div class="box">
+        {% if new_message %}
+            <p style="text-align: center;">Your message is sent...</p>
+        {% else %}
+            <form action="." method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="btn btn-primary" type="submit" value="Send message">
+            </form>
+        {% endif %}
+    </div>
 {% endblock %}

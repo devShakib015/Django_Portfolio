@@ -2,10 +2,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <h1 class="display-3 text-center">More Businesses</h1>
+    <hr>
+    
     {% for business in businesses %}
-        <h1>Name: {{ business.name }}</h1>
-        <p>S D: {{ business.short_description }}</p>
-        <p>L D: {{ business.long_description }}</p>
-        <img src="{{ business.image.url }}" alt="{{ business.name }} - Pic" width='256px' height='auto'>
+        <div class="box">
+            <img src="{{ business.image.url }}" alt="{{ business.name }} - image" class="img-fluid img-box">
+            <div>
+                <br>
+            </div>
+            <h2>{{ business.name }}</h2>
+            <br>
+            <h6 class="display-6 text-muted">{{ business.short_description }}</h6>
+            <br>
+            <p>{{ business.long_description }}</p>
+            <div>
+                <br>
+            </div>
+        </div>
+        
     {% endfor %}
 {% endblock %}

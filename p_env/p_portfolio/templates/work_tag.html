@@ -1,0 +1,13 @@
+<div class="display-5 justify-content-center d-flex">
+    <h1 class="border-bottom border-light py-2">Works</h1>
+</div>
+<div class=" row box">
+    {% for work in works %}
+        <div class="col-md-4 text-center">
+            
+            <img src="{{ work.image.url }}" alt="{{ work.title }} - image" class="img-fluid img-box">
+            <h3>{{ work.title }}</h3>
+        </div>
+    {% endfor %}
+    <p class="mx-auto mt-5"><a class="text-light" href="{% url 'recent_work' %}">More works...</a></p>
+</div>

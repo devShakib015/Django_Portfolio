@@ -1,10 +1,22 @@
 
 {% extends 'base.html' %}
-
+{% block title%}Services{% endblock %}
 {% block content %}
-    {% for service in services %}
-        <h1>Title: {{ service.title }}</h1>
-        <p>Description: {{ service.description }}</p>
-        <img src="{{ service.image.url }}" alt="{{ service.title }} - image" width='256px' height='auto'>
-    {% endfor %}
+    <h1 class="display-3 text-center">Services</h1>
+    <hr>
+        {% for service in services %}
+            <div class="box">
+                <img src="{{ service.image.url }}" alt="{{ service.title }} - image" class="img-fluid img-box">
+                <div>
+                    <br>
+                </div>
+                <h2>{{ service.title }}</h2>
+                <br>
+                <p>{{ service.description }}</p>
+                <div>
+                    <br>
+                </div>
+            </div>
+           
+        {% endfor %}
 {% endblock %}

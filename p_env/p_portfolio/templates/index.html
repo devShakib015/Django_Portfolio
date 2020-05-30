@@ -2,8 +2,18 @@
 {% load core_tags %}
 
 {% block content %}
-    <h1>Welcome to Dj Sam</h1>
-    <h3>Testimonial:</h3>
-    {% testimonial %}
-
+    <div class="h-75 d-flex justify-content-center align-items-center">
+        <h1 class="display-1 text-center">Welcome to Dj Sam</h1>
+    </div>
+    
+    <div class="hideme">
+        {% video_tag %}
+    </div>
+    <div class="hideme">
+        {% service_tag %}
+    </div>
+    <div class="hideme">
+        {% work_tag %}
+    </div>
+    
 {% endblock %}

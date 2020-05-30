@@ -1,16 +1,27 @@
+
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title%}{% endblock %}</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.0.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
 </head>
 
-<body>
-    <div class="bs-example">
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <div class="container">
-                <a href="{% url 'index' %}" class="navbar-brand">DJ Sam</a>
+<body style="background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({% static 'images/bg.jpg' %});background-attachment: fixed;background-repeat: no-repeat;background-size: cover;background-position: center center;">
+    <div class="margin">
+        <nav class="navbar navbar-expand-md navbar-dark nav_bg fixed-top">
+            <div class="container-fluid mx-5">
+                <a href="{% url 'index' %}" class="navbar-brand"><img class="img-fluid logo" src="{% static 'images/logo.png' %}" alt="logo"></a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -19,25 +30,22 @@
                     <div class="navbar-nav">
                         <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
                         <a href="{% url 'service' %}" class="nav-item nav-link">Services</a>
-                        <a href="{% url 'recent_work' %}" class="nav-item nav-link">Recent Works</a>
+                        <a href="{% url 'recent_work' %}" class="nav-item nav-link">Works</a>
                         <a href="{% url 'videos' %}" class="nav-item nav-link">Videos</a>
-                        <a href="{% url 'other_business' %}" class="nav-item nav-link">Other businesses</a>
                         <a href="{% url 'career' %}" class="nav-item nav-link">Career</a>
-                        <a href="{% url 'about' %}" class="nav-item nav-link">About me</a>
-                        <a href="{% url 'contact' %}" class="nav-item nav-link">Contact me</a>
+                        <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                        <a href="{% url 'contact' %}" class="nav-item nav-link">Message</a>
+                        <a href="{% url 'other_business' %}" class="nav-item nav-link">More</a>
                     </div>
                 </div>
             </div>
         </nav>
     </div>
 
-    <div class="container my-3">
+
+    <div class="container">
         {% block content %}
         {% endblock %}
     </div>
- 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
