@@ -1,0 +1,13 @@
+<div class="display-5 justify-content-center d-flex">
+    <h1 class="border-bottom border-light py-2">Career</h1>
+</div>
+<div class=" row box">
+    {% for career in careers %}
+        <div class="col-md-4 text-center">
+            
+            <img src="{{ career.image.url }}" alt="{{ career.title }} - image" class="img-fluid img-box">
+            <h3>{{ career.title }}</h3>
+        </div>
+    {% endfor %}
+    <p class="mx-auto mt-5"><a class="text-light" href="{% url 'career' %}">More...</a></p>
+</div>

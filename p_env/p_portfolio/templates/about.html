@@ -1,11 +1,34 @@
 {% extends 'base.html' %}
 
+{% load core_tags %}
+
 {% block content %}
-    {% for profile in profiles %}
-        <h1>{{ profile.name }}</h1>
-        <p>{{ profile.birth }}</p>
-        <p>{{ profile.short_description }}</p>
-        <p>{{ profile.long_description }}</p>
-        <img src="{{ profile.image.url }}" alt="Profile pic" width="256px" height="auto">
-    {% endfor %}
+    <h1 class="display-3 text-center">About me</h1>
+    <hr>
+    <div class=" row box">
+        {% for profile in profiles %}
+            <div class="col-md-6">
+                <img src="{{ profile.image.url }}" alt="{{ profile.title }} - image" class="img-fluid img-box">
+            </div>
+            <div class="col-md-6 d-flex flex-column justify-content-center">
+                <h1 class="display-5 my-5">{{ profile.name }}</h1>
+                <p>Birthday: {{ profile.birth }}</p>
+                <p>Hobbies: 
+                    {% for hobby in hobbies %}
+                        {{ hobby }}{% if not forloop.last %}{% ifequal forloop.revcounter 2 %} and {% else %}, {% endifequal %}{% else %}{% endif %}
+                    {% endfor %}
+                </p>
+                <p>Phone: {{ profile.phone }}</p>
+                <p>Email: {{ profile.email }}</p>
+                <p>Address: {{ profile.address }}</p>
+                <p>{{ profile.short_description }}</p>   
+            </div>
+            <div class="col-md-12">
+                <p>{{ profile.long_description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    
+    {% map_tag %}
+
 {% endblock %}

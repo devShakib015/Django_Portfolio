@@ -26,3 +26,27 @@ def work_tag(count=3):
     works = RecentWorks.objects.order_by('-id')[0:3]
 
     return{'works': works}
+
+@register.inclusion_tag('career_tag.html')
+def career_tag(count=3):
+    careers = Career.objects.order_by('-id')[0:3]
+
+    return{'careers': careers}
+
+@register.inclusion_tag('map_tag.html')
+def map_tag():
+    maps = Map.objects.all()
+
+    return{'maps': maps}
+
+@register.inclusion_tag('about_tag.html')
+def about_tag():
+    profiles = AboutMe.objects.all()
+
+    return{'profiles': profiles}
+
+@register.inclusion_tag('about_description_tag.html')
+def about_description_tag():
+    profiles = AboutMe.objects.all()
+
+    return{'profiles': profiles}

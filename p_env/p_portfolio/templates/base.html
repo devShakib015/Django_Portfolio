@@ -1,5 +1,6 @@
 
 {% load static %}
+{% load core_tags %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,13 +14,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.0.min.js"></script>
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
 </head>
 
 <body style="background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({% static 'images/bg.jpg' %});background-attachment: fixed;background-repeat: no-repeat;background-size: cover;background-position: center center;">
-    <div class="margin">
-        <nav class="navbar navbar-expand-md navbar-dark nav_bg fixed-top">
+	
+	<div class="margin">
+        <nav class="navbar navbar-expand-md navbar-dark nav_bg fixed-top flex-column">
             <div class="container-fluid mx-5">
                 <a href="{% url 'index' %}" class="navbar-brand"><img class="img-fluid logo" src="{% static 'images/logo.png' %}" alt="logo"></a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -42,10 +45,56 @@
         </nav>
     </div>
 
-
+	
     <div class="container">
         {% block content %}
         {% endblock %}
     </div>
+
+    <!-- Footer -->
+	<section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4 p-5">
+                    <h5>About me</h5>
+					{% about_tag %}
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4 p-5">
+					<h5>Description</h5>
+					{% about_description_tag %}
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4 p-5">
+					<h5>Quick links</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="{% url 'index' %}"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="{% url 'about' %}"><i class="fa fa-angle-double-right"></i>About</a></li>
+						<li><a href="{% url 'contact' %}"><i class="fa fa-angle-double-right"></i>Message</a></li>
+						<li><a href="{% url 'recent_work' %}"><i class="fa fa-angle-double-right"></i>Works</a></li>
+						<li><a href="{% url 'videos' %}"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+						<li><a href="{% url 'career' %}"><i class="fa fa-angle-double-right"></i>Career</a></li>
+						<li><a href="{% url 'other_business' %}"><i class="fa fa-angle-double-right"></i>More</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-wechat"></i></a></li>
+					</ul>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p>Developed and designed by <a href="https://venomshakib.github.io/" target="_blank">Shakib</a>. This portfolio is built by using Django.</p>
+					<p class="h6">© All right Reversed | 2020</p>
+				</div>
+			</div>	
+		</div>
+	</section>
+	<!-- ./Footer -->
 </body>
 </html>

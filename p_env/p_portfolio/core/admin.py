@@ -38,3 +38,7 @@ class OtherBusinessAdmin(admin.ModelAdmin):
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
     list_display = ['name']
+
+@admin.register(Map)
+class MapAdmin(admin.ModelAdmin):
+    list_display = ['link']

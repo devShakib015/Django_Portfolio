@@ -5,7 +5,7 @@ from embed_video.fields import EmbedVideoField
 
 
 class Video(models.Model):
-    title = models.CharField(max_length=400, default='Add the title of your video...')
+    title = models.CharField(max_length=400)
     video = models.URLField()
 
     def __str__(self):
@@ -18,6 +18,9 @@ class AboutMe(models.Model):
     short_description = models.CharField(max_length=1000)
     long_description = models.TextField()
     image = models.ImageField(upload_to='about')
+    phone = models.CharField(max_length=15)
+    email = models.EmailField()
+    address = models.CharField(max_length=400)
 
     class Meta:
         verbose_name = "About me"
@@ -107,5 +110,13 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return self.name
+
+class Map(models.Model):
+    link = models.URLField(max_length=2000)
+
+    def __str__(self):
+        return self.link
+    
+
     
     
